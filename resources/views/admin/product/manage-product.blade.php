@@ -47,10 +47,10 @@
                                     @endif      
                                 </td>
                                 <td>
-                                    <a href="" class="btn btn-success">Edit</a>
+                                    <a href="{{ route('edit-product', ['id' => $product->id])}}" class="btn btn-success">Edit</a>
                                 </td>
                                 <td>
-                                    <a href="" class="btn btn-warning">Delete</a>
+                                    <a href="{{ route('delete-product', ['id' => $product->id]) }}" class="btn btn-warning">Delete</a>
                                 </td>
                               
                             </tr>

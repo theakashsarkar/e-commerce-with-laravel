@@ -3,7 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-
+use App\Category;
+use View;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -23,6 +24,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // View::share('key', 'value');
+        View::composer('frontEnd.include.header', function($view){
+         $view->with('categories',Category::where('publication_staus',1)->get()); 
+        });
     }
 }

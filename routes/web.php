@@ -15,10 +15,14 @@ Route::get( '/', [
     'uses' => 'newShopeController@index',
     'as'   => '/',
 ] );
-Route::get( '/product', [
+Route::get( '/category-product/{id}', [
     'uses' => 'newShopeController@product',
-    'as'   => 'product',
+    'as'   => 'category-product',
 ] );
+Route::get('/product-details/{id}/{name}',[
+    'uses' => 'newShopeController@productDetails',
+    'as'   => 'product-details'
+]);
 Route::get( '/product1', [
     'uses' => 'newShopeController@product1',
     'as'   => 'product1',
@@ -111,6 +115,38 @@ Route::get('manage/product',[
 Route::post('new/product',[
     'uses' => "ProductController@saveProduct",
     'as'   => "new-product"
+]);
+Route::get('edit/prodcut/{id}',[
+    'uses' => 'ProductController@editProduct',
+    'as'   => 'edit-product'
+]);
+Route::get('delete/product',[
+    'uses' => 'ProductController@deleteProduct',
+    'as'   => 'delete-product'
+]);
+Route::post('update/product',[
+    'uses' => 'ProductController@updateProduct',
+    'as'   => 'update-product'
+]);
+Route::post('/add/Cart',[
+    'uses' => 'CartController@addToCart',
+    'as'   => 'add-to-cart',
+]);
+Route::get('cart/show',[
+   'uses' => 'CartController@showCart',
+    'as'  => 'show-cart'
+]);
+Route::get('cart/delete/{id}',[
+    'uses' => 'CartController@deleteCard',
+    'as'   => 'delete-card-item'
+]);
+Route::post('cart/update',[
+    'uses' => 'CartController@updateCart',
+    'as'   => 'update-cart'
+]);
+Route::get('cart/checkout',[
+    'uses' => 'CheckoutController@index',
+    'as'   => 'checkout'
 ]);
 Route::get( '/home', 'HomeController@index' )->name( 'home' );
 

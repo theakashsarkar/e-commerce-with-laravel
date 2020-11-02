@@ -2,21 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
+use App\Product;
+use App\brand;
 use Illuminate\Http\Request;
 
 class newShopeController extends Controller
 {
     //function
     public function index(){
-        return view('frontEnd.Home.home');
+        
+        $newProduct = Product::where('publication_status',1)->orderBy('id','DESC')->take(8)->get();
+        return view('frontEnd.Home.home',['newProduct' => $newProduct]);
     }
-    public function product(){
-        return view('frontEnd.Category.category');
+    public function product($id){
+        $categoryProduct = Product::where('category_id',$id)
+                           ->where('publication_status',1)
+                           ->get();
+        return view('frontEnd.Category.category',['categoryProduct' => $categoryProduct]);
     }
-    public function product1(){
-        return view('frontEnd.Category.category1');
-    }
-    public function mail(){
-        return view('frontEnd.Mail.mail');
+    public function productDetails($id)
+    {
+        $Product = Product::find($id);
+        return view('frontEnd.product.product-details',['product' => $Product]);
     }
 }

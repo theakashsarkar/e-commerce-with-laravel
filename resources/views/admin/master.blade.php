@@ -86,6 +86,7 @@
             <h6 class="collapse-header">Product:</h6>
             <a class="collapse-item" href="{{ route('add-product') }}">Add Product</a>
             <a class="collapse-item" href="{{ route('manage-product') }}">Mange Product</a>
+          
           </div>
         </div>
       </li>
