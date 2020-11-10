@@ -145,8 +145,32 @@ Route::post('cart/update',[
     'as'   => 'update-cart'
 ]);
 Route::get('cart/checkout',[
-    'uses' => 'CheckoutController@index',
+    'uses' => 'ChekoutController@index',
     'as'   => 'checkout'
+]);
+Route::post('customer/registration',[
+    'uses' => 'ChekoutController@customerSingUp',
+    'as'   => 'registration'
+]);
+Route::get('/checkout/shipping',[
+   'uses' => 'ChekoutController@shippingFrom',
+    'as'  => 'checkout-shipping'
+]);
+Route::post('/shipping/save',[
+    'uses' => 'ChekoutController@saveShippingInfo',
+    'as'   => 'new-shipping'
+]);
+Route::get('/checkout/payment',[
+   'uses' => 'ChekoutController@paymentForm',
+    'as'  => 'checkout-payment'
+]);
+Route::post('checkout/order',[
+    'uses' => 'ChekoutController@newOrder',
+    'as'   => 'new-order'
+]);
+Route::get('/complete/order',[
+    'uses' => 'ChekoutController@completeOrder',
+    'as'   => 'complete-order'
 ]);
 Route::get( '/home', 'HomeController@index' )->name( 'home' );
 

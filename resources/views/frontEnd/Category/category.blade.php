@@ -61,7 +61,7 @@
 														<li><a href="products.html">SunGlasses</a></li>
 													</ul>
 												</li>
-												
+
 											</ul>
 										</li>
 										<li><input type="checkbox" checked="checked" id="item-2" /><label for="item-2">Best Offers</label>
@@ -97,12 +97,12 @@
 								<div class="price">
 									<h3>Price Range</h3>
 									<ul class="dropdown-menu6">
-										<li>                
-											<div id="slider-range"></div>							
+										<li>
+											<div id="slider-range"></div>
 											<input type="text" id="amount" style="border: 0; color: #ffffff; font-weight: normal;" />
-										</li>			
+										</li>
 									</ul>
-									<script type='text/javascript'>//<![CDATA[ 
+									<script type='text/javascript'>//<![CDATA[
 									$(window).load(function(){
 									 $( "#slider-range" ).slider({
 												range: true,
@@ -114,7 +114,7 @@
 									 });
 									$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) + " - $" + $( "#slider-range" ).slider( "values", 1 ) );
 
-									});//]]>  
+									});//]]>
 
 									</script>
 									<script type="text/javascript" src="{{ asset('/') }}frontEnd/js/jquery-ui.js"></script>
@@ -123,27 +123,27 @@
 									<h3>Top Rates products</h3>
 									<div class="recent-grids">
 										<div class="recent-left">
-											<a href="single.html"><img class="img-responsive " src="{{ asset('/') }}frontEnd/images/r.jpg" alt=""></a>	
+											<a href="single.html"><img class="img-responsive " src="{{ asset('/') }}frontEnd/images/r.jpg" alt=""></a>
 										</div>
 										<div class="recent-right">
 											<h6 class="best2"><a href="single.html">Lorem ipsum dolor </a></h6>
 											<p><del>$100.00</del> <em class="item_price">$09.00</em></p>
-										</div>	
+										</div>
 										<div class="clearfix"> </div>
 									</div>
 									<div class="recent-grids">
 										<div class="recent-left">
-											<a href="single.html"><img class="img-responsive " src="{{ asset('/') }}frontEnd/images/r1.jpg" alt=""></a>	
+											<a href="single.html"><img class="img-responsive " src="{{ asset('/') }}frontEnd/images/r1.jpg" alt=""></a>
 										</div>
 										<div class="recent-right">
 											<h6 class="best2"><a href="single.html">Duis aute irure </a></h6>
 											<p><del>$100.00</del> <em class="item_price">$19.00</em></p>
-										</div>	
+										</div>
 										<div class="clearfix"> </div>
 									</div>
 									<div class="recent-grids">
 										<div class="recent-left">
-											<a href="single.html"><img class="img-responsive " src="{{ asset('/') }}frontEnd/images/r2.jpg" alt=""></a>	
+											<a href="single.html"><img class="img-responsive " src="{{ asset('/') }}frontEnd/images/r2.jpg" alt=""></a>
 										</div>
 										<div class="recent-right">
 											<h6 class="best2"><a href="single.html">Lorem ipsum dolor </a></h6>
@@ -153,12 +153,12 @@
 									</div>
 									<div class="recent-grids">
 										<div class="recent-left">
-											<a href="single.html"><img class="img-responsive " src="{{ asset('/') }}frontEnd/images/r3.jpg" alt=""></a>	
+											<a href="single.html"><img class="img-responsive " src="{{ asset('/') }}frontEnd/images/r3.jpg" alt=""></a>
 										</div>
 										<div class="recent-right">
 											<h6 class="best2"><a href="single.html">Ut enim ad minim </a></h6>
 											<p><em class="item_price">$39.00</em></p>
-										</div>	
+										</div>
 										<div class="clearfix"> </div>
 									</div>
 								</div>
@@ -199,7 +199,7 @@
 												<option value=""> Color </option>
 												<option value=""> Price </option>
 										</select>
-									  </p> 
+									  </p>
 									  <p>Show
 										<select>
 											  <option value=""> 9</option>
@@ -208,7 +208,7 @@
 												<option value=""> 12 </option>
 										</select>
 									  </p>
-									<div class="clearfix"></div>		
+									<div class="clearfix"></div>
 								</div>
 								<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
 									<ul id="myTab" class="nav1 nav1-tabs left-tab" role="tablist">
@@ -223,16 +223,16 @@
 												<div class="col-md-4 product-tab-grid simpleCart_shelfItem">
 													<div class="grid-arr">
 														<div  class="grid-arrival">
-															<figure> 
-																<a href="{{ route('product-details',['id' => $category->id]) }}" class="new-gri" data-toggle="modal" data-target="#myModal1">
+															<figure>
+																<a href="{{ route('product-details',['id' => $category->id, 'name' => $category->product_name]) }}" class="new-gri" data-toggle="modal" data-target="#myModal1">
 																	<div class="grid-img">
 																		<img  src="{{ asset($category->product_image) }}" class="img-responsive" alt="">
 																	</div>
 																	<div class="grid-img">
 																		<img  src="{{ asset($category->product_image) }}" class="img-responsive"  alt="">
-																	</div>			
-																</a>		
-															</figure>	
+																	</div>
+																</a>
+															</figure>
 														</div>
 														<div class="block">
 															<div class="starbox small ghosting"> </div>

@@ -16,12 +16,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!--css-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="New Shop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+<meta name="keywords" content="New Shop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <script src="{{ asset('/') }}frontEnd/js/jquery.min.js"></script>
 <link href='//fonts.googleapis.com/css?family=Cagliostro' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Open+Sans:400,800italic,800,700italic,700,600italic,600,400italic,300italic,300' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,800italic,800,700italic,700,600italic,600,400italic,300italic,300' rel='stylesheet' type='text/css'>
+
 <!--search jQuery-->
 	<script src="{{ asset('/') }}frontEnd/js/main.js"></script>
 <!--search jQuery-->
@@ -74,7 +75,7 @@ $(window).load(function() {
 					var val = Math.random();
 					starbox.next().text(' '+val);
 					return val;
-					} 
+					}
 				})
 			});
 		});
@@ -93,7 +94,6 @@ $(window).load(function() {
 		});
 		});
 	</script>
-
 
 <!--//End-rate-->
 </head>
