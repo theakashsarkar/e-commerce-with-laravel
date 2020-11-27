@@ -1,0 +1,12 @@
+version: '3.5'
+
+services:
+  web:
+    container_name: ${APP_NAME}
+    build:
+      context: ./docker/web
+    ports:
+      - 9000:80
+
+    volumes:
+      - ./:/var/www/app 

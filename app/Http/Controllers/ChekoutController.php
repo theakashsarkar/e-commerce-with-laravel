@@ -44,12 +44,27 @@ class ChekoutController extends Controller
     {
         $shipping = new shipping();
         $shipping->full_name      = $request->full_name;
-        $shipping->	email_address = $request->email_address;
+        $shipping->email_address  = $request->email_address;
         $shipping->phone_number   = $request->phone_number;
         $shipping->address        = $request->address;
         $shipping->save();
         Session::put('shippingId',$shipping->id);
         return redirect('/checkout/payment');
+    }
+    public function login(Request $request){
+        $customer = customer::where('email_address',$request->emaill_address)->first();
+        if($customer != null){
+            if(password_verify($request->password,$customer->password)){
+                Session::put('customerId',$customer->id);
+                Session::put('customerName',$customer->firstName.' '.$customer->last_name);
+                return redirect('/checkout/shipping');
+            }else{
+                return redirect('/customer/login')->with('message',"password or email address are not metch");
+            }
+        }else{
+            echo "IS empty";
+        }
+        
     }
     public function paymentForm(){
         return view('frontEnd.checkout.payment');
@@ -86,6 +101,11 @@ class ChekoutController extends Controller
 
        }
 
+    }
+    public function logout(){
+        Session::forget('customerId');
+        Session::forget('customerName');
+        return redirect('/');
     }
     public function completeOrder(){
         return 'success';

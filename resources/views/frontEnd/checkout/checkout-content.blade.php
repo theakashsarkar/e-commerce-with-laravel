@@ -15,7 +15,7 @@
                     <div class="col-md-5 well">
                         <h3>Register if you are not Registered before!</h3>
                         <br/>
-                            {{ Form::open(['route'=>'registration', 'mathod' =>'POST']) }}
+                            {{ Form::open(['route'=>'registration', 'method' =>'POST']) }}
                                 <div class="form-group">
                                         <input type="text" name="first_name" class="form-control" placeholder="First Name">
                                 </div>
@@ -43,7 +43,7 @@
                     <div class="col-md-5 well" style="margin-left:20px;">
                         <h3>Already Registered? Login here!</h3>
                         <br>
-                        {{ Form::open() }}
+                        {{ Form::open(['route'=>'customer-login', 'method' =>'post']) }}
                             <div class="form-group">
                                 <input type="email" name="Email" class="form-control" placeholder="example@email.com">
                             </div>

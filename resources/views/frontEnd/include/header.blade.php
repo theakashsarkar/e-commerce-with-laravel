@@ -7,7 +7,11 @@
 					<div class="top-right">
 					<ul>
 						<li><a href="checkout.html">Checkout</a></li>
-						<li><a href="login.html">Login</a></li>
+						@if(Session::get('customerId'))
+						<li><a href="{{ route('customer-logout')}}">logout</a></li>
+						@else
+						<li><a href="{{ route('customer-logout')}}">Login</a></li>
+						@endif
 						<li><a href="registered.html"> Create Account </a></li>
 					</ul>
 					</div>
