@@ -52,19 +52,15 @@ class ChekoutController extends Controller
         return redirect('/checkout/payment');
     }
     public function login(Request $request){
-        $customer = customer::where('email_address',$request->emaill_address)->first();
-        if($customer != null){
-            if(password_verify($request->password,$customer->password)){
+        $customer = customer::where('email_address',$request->Email)->first();
+        if(password_verify($request->password,$customer->password)){
                 Session::put('customerId',$customer->id);
                 Session::put('customerName',$customer->firstName.' '.$customer->last_name);
                 return redirect('/checkout/shipping');
-            }else{
-                return redirect('/customer/login')->with('message',"password or email address are not metch");
-            }
         }else{
-            echo "IS empty";
+            return redirect('/cart/checkout')->with('message',"password or email address are not metch");
         }
-        
+
     }
     public function paymentForm(){
         return view('frontEnd.checkout.payment');

@@ -152,7 +152,7 @@ Route::post('customer/registration',[
     'uses' => 'ChekoutController@customerSingUp',
     'as'   => 'registration'
 ]);
-Route::Post('customer/login',[
+Route::post('customer/login',[
     'uses' => 'ChekoutController@login',
     'as'   => 'customer-login'
 ]);
