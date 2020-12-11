@@ -10,7 +10,7 @@
 						@if(Session::get('customerId'))
 						<li><a href="{{ route('customer-logout')}}">logout</a></li>
 						@else
-						<li><a href="{{ route('customer-logout')}}">Login</a></li>
+						<li><a href="{{ route('new-customer-login')}}">Login</a></li>
 						@endif
 						<li><a href="registered.html"> Create Account </a></li>
 					</ul>

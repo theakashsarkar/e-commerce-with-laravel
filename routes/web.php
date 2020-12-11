@@ -152,13 +152,17 @@ Route::post('customer/registration',[
     'uses' => 'ChekoutController@customerSingUp',
     'as'   => 'registration'
 ]);
-Route::post('customer/login',[
+Route::Post('customer/login',[
     'uses' => 'ChekoutController@login',
     'as'   => 'customer-login'
 ]);
 Route::get('customer/logout',[
     'uses' => 'ChekoutController@logout',
     'as'   => 'customer-logout'
+]);
+Route::Post('new-customer-login',[
+    'uses' => 'ChekoutController@newCustomerLogin',
+    'as'   => 'new-customer-login'
 ]);
 Route::get('/checkout/shipping',[
    'uses' => 'ChekoutController@shippingFrom',

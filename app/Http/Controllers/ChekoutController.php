@@ -60,6 +60,10 @@ class ChekoutController extends Controller
         Session::put('shippingId',$shipping->id);
         return redirect('/checkout/payment');
     }
+    /**
+     * login and email verify
+     * login user password and singUp user password match
+     */
     public function login(Request $request){
         $customer = customer::where('email_address',$request->Email)->first();
         if(password_verify($request->password,$customer->password)){
@@ -67,13 +71,18 @@ class ChekoutController extends Controller
                 Session::put('customerName',$customer->firstName.' '.$customer->last_name);
                 return redirect('/checkout/shipping');
         }else{
-            return redirect('/cart/checkout')->with('message',"password or email address are not metch");
+            return redirect('/cart/checkout')->with('message',"password or email address are not match");
         }
 
     }
     public function paymentForm(){
         return view('frontEnd.checkout.payment');
     }
+    /**
+     * new order submit
+     * and payment type
+     * cart function
+     */
     public function newOrder(Request $request){
        $paymentType = $request->payment_type;
        if($paymentType == 'Cash'){
@@ -107,10 +116,20 @@ class ChekoutController extends Controller
        }
 
     }
+    /*
+     * logout function
+     */
     public function logout(){
         Session::forget('customerId');
         Session::forget('customerName');
         return redirect('/');
+    }
+    /**
+     * login view template
+     * customer login information
+     */
+    public function newCustomerLogin(){
+        return view('front-end.customer.customer-login');
     }
     public function completeOrder(){
         return 'success';
