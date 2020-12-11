@@ -11,11 +11,17 @@ use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
+    /*
+     * brand and categories published show the admin panel
+     */
     public function index(){
         $brands = brand::where('publication_status',1)->get();
         $categories = Category::where('publication_staus',1)->get();
         return view("admin.product.add-product", ["brands" => $brands, "categories" => $categories]);
     }
+    /*
+     * Form validate function
+     */
     protected function productInfoValidate($request)
     {
         $this->validate($request, [
@@ -26,6 +32,9 @@ class ProductController extends Controller
             'short_description' => 'required'
         ]);
     }
+    /*
+     *  image upload process function
+     */
     protected function productImageUpload($request)
     {
         $productImage = $request->file('product_image');
@@ -53,12 +62,18 @@ class ProductController extends Controller
         $product -> save();
 
     }
+    /*
+     * save product function
+     */
     public function saveProduct(Request $request){
         $this->productInfoValidate($request);
         $imageUrl = $this->productImageUpload($request);
         $this->saveProductBasicInfo($request,$imageUrl);
         return redirect('/product/add')->with('message','product add successfull');
     }
+    /*
+     * manage product function
+     */
     public function mangeProduct()
     {
        $product = DB::table('products')
@@ -88,6 +103,9 @@ class ProductController extends Controller
         $product -> publication_status= $request -> publication_status;
         $product -> save();
     }
+    /*
+     * product information update function
+     */
     public function updateProduct(Request $request){
         $productImage = $request->file('product_image');
         $product = Product::find( $request -> product_id );

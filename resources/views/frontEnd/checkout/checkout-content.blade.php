@@ -42,7 +42,7 @@
                     </div>
                     <div class="col-md-5 well" style="margin-left:20px;">
                         <h3 class="text-center">Already Registered? Login here!</h3>
-                        <h3 class="text-center text-danger">{{ Session::get('message') }}</h3>
+                        <h3 class="text-center text-dangerg">{{ Session::get('message') }}</h3>
                         <br>
                         {{ Form::open(['route'=>'customer-login', 'method' =>'POST']) }}
                             <div class="form-group">

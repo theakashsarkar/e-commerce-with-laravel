@@ -8,7 +8,7 @@ use App\OrderDetails;
 use App\Payment;
 use App\shipping;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
+use Mail;
 use Cart;
 use Session;
 class ChekoutController extends Controller
@@ -17,7 +17,16 @@ class ChekoutController extends Controller
     {
         return view('frontEnd.checkout.checkout-content');
     }
+    /*
+     * customerSingUp function create with
+     * customer information and
+     * singUp system create
+     * email verify
+     */
     public function customerSingUp(Request $request){
+        $this->validate($request,[
+            'email_address' => 'required|email|unique:customers,email_address',
+        ]);
         $customer = new customer();
         $customer->first_name    = $request->first_name;
         $customer->last_name     = $request->last_name;
